@@ -1,7 +1,7 @@
 {
-	"name": "Niobium",
+	"name": "niobium",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Niobium is vault syncronization plugin for obsidian",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

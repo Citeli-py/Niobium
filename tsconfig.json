@@ -16,12 +16,10 @@
       "ES5",
       "ES6",
       "ES7"
-    ]
+    ],
+    "outDir": "./dist"
   },
   "include": [
-    "**/*.ts", 
-    "./libs/VaultHandler.js" , 
-    "./libs/localClient.js",
-    "./libs/transferServer.js"
+    "**/*.ts"
  ]
 }

@@ -52,7 +52,8 @@ export class ClientModal extends Modal {
             });
         });
 
-        selectAllLabel.appendText('Selecionar Todos');
+        selectAllLabel.appendText('Select all');
+        //selectAllLabel.innerHTML = '<bold>Select all</bold>';
     }
 
     operateCheckedFiles(contentEl: HTMLElement, pull_files: File[]){
@@ -94,14 +95,14 @@ export class ClientModal extends Modal {
     selectionScreen(contentEl: HTMLElement, modified_files: File[], remove_files: File[], pull_files: File[]){
 
         // Subtitle
-        contentEl.createEl('h3', { text: 'Escolha quais arquivos alterados você deseja manter:' });
+        contentEl.createEl('h3', { text: 'Choose which changed files you want to keep:' });
 
         // Modified Files
         this.selectfilesUl(contentEl, modified_files, "modified_file");
 
         // Informação adicional
         const warning: HTMLElement = contentEl.createEl('p');
-        warning.innerHTML = '<i> Os arquivos antigos serão renomeados como <bold>arquivo_old</bold>. </i>';
+        warning.innerHTML = '<i> The old files will be renamed as <bold>file_old</bold>. </i>';
   
 
         // Título para exclusão de arquivos
@@ -114,7 +115,7 @@ export class ClientModal extends Modal {
         const buttonDiv = contentEl.createEl('div');
         buttonDiv.style.marginTop = "30px";
 
-        const confirmButton = buttonDiv.createEl('button', { text: 'Confirmar' });
+        const confirmButton = buttonDiv.createEl('button', { text: 'Confirm' });
         confirmButton.addEventListener('click', () => {
             this.operateCheckedFiles(contentEl, pull_files);
             this.close();
@@ -136,21 +137,20 @@ export class ClientModal extends Modal {
             this.close();
         }
 
-        statusText.textContent = "Files selection";
-        serverText.remove();
-        
         // Obter os arquivos diferentes
         // Obter os arquivos que vão ser eliminados
         const { pull_files, modified_files, remove_files }  = this.client.vaultHandler.pullFiles(remote_vault.files);
 
+        // Case the vaults are the same
+        if(pull_files.length < 1){
+            new Notice("Vaults alredy in sync!");
+            this.close();
+        }
+
+        statusText.textContent = "Files selection";
+        serverText.remove();
+
         this.selectionScreen(contentEl, modified_files, remove_files, pull_files);
-
-        // Coisa para colocar nas próximas alterações 
-        // Pedir para confirmar as alterações
-        // Se deseja remover arquivos
-        // Selecionar quais arquivos devem ser alterados
-
-        //this.close();
     }
 
     onClose() {

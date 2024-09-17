@@ -1,11 +1,10 @@
 {
-	"id": "Niobium",
+	"id": "niobium",
 	"name": "Niobium",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
+	"description": "Niobium is vault syncronization plugin for obsidian",
 	"author": "Citeli-py",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"authorUrl": "https://github.com/Citeli-py",
 	"isDesktopOnly": false
 }
