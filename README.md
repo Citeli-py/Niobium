@@ -21,7 +21,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Citely-py/Niobium.git
+git clone https://github.com/Citeli-py/Niobium.git
 ```
 
 2. Navigate to the plugin directory:
